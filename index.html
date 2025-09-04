@@ -34,32 +34,28 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Updated Product Structured Data with aggregateRating -->
+  <!-- Updated Product Structured Data with aggregateRating (no images) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "SoftwareApplication",
     "name": "Habitari Habit Tracker",
     "description": "Build daily habits, track progress, and achieve goals with Habitari - an offline habit tracker app with gamification, zen garden, and complete privacy protection.",
-    "brand": {
-      "@type": "Brand",
-      "name": "Habitari"
-    },
-    "category": "Mobile Application",
-    "operatingSystem": "Android",
     "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://play.google.com/store/apps/details?id=com.habitari.habitmaster"
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
       "reviewCount": "12",
       "bestRating": "5",
       "worstRating": "1"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
     },
     "review": [
       {
