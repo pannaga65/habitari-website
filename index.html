@@ -232,6 +232,7 @@
       display: flex;
       gap: 30px;
       list-style: none;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
@@ -287,6 +288,7 @@
       align-items: center;
       transition: left 0.3s ease;
       z-index: 1000;
+      padding: 0 20px;
     }
 
     .mobile-menu.active {
@@ -302,6 +304,8 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all 0.3s ease;
+      text-align: center;
+      max-width: 90vw;
     }
 
     .mobile-menu a:hover {
@@ -811,7 +815,7 @@
     }
 
     /* Enhanced Mobile Responsive Design */
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       .container {
         padding: 0 15px;
       }
@@ -822,6 +826,17 @@
 
       .mobile-menu-toggle {
         display: block;
+      }
+
+      .nav-content {
+        justify-content: space-between;
+      }
+    }
+
+    /* Fine-tune smaller phones */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
       }
 
       .hero-grid {
