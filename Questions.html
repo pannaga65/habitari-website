@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Discover Your Habit Archetype - Free Interactive Quiz | Habitari</title>
+  <meta name="description" content="Discover your unique habit-building personality with our free interactive quiz. Get personalized strategies for building lasting habits based on your archetype. Take the quiz now!">
+  <meta name="keywords" content="habit quiz, personality test, habit building, personal development, habit tracker, self-improvement, productivity, wellness habits">
+  <meta name="author" content="Habitari">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.habitari.site/quiz">
+  <meta property="og:title" content="Discover Your Habit Archetype - Free Interactive Quiz | Habitari">
+  <meta property="og:description" content="Unlock your unique habit-building personality through our immersive interactive quiz. Discover personalized strategies that align with your natural tendencies.">
+  <meta property="og:image" content="https://www.habitari.site/images/habit-archetype-quiz-preview.jpg">
+  <meta property="og:site_name" content="Habitari">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.habitari.site/quiz">
+  <meta property="twitter:title" content="Discover Your Habit Archetype - Free Interactive Quiz | Habitari">
+  <meta property="twitter:description" content="Take our free quiz to discover your habit personality and get personalized strategies for building lasting habits.">
+  <meta property="twitter:image" content="https://www.habitari.site/images/habit-archetype-quiz-preview.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.habitari.site/quiz">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="https://www.habitari.site/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.habitari.site/apple-touch-icon.png">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Habitari Habit Archetype Quiz",
+    "description": "Interactive quiz to discover your habit-building personality and get personalized strategies",
+    "url": "https://www.habitari.site/quiz",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Habitari",
+      "url": "https://www.habitari.site"
+    }
+  }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --success-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      
+      --bg-primary: #0f0f23;
+      --bg-secondary: #1a1a2e;
+      --bg-card: #16213e;
+      --bg-glass: rgba(255, 255, 255, 0.1);
+      
+      --text-primary: #ffffff;
+      --text-secondary: #b8c1ec;
+      --text-accent: #4facfe;
+      
+      --shadow-primary: 0 15px 35px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+      --glow-primary: 0 0 20px rgba(79, 172, 254, 0.3);
+      --glow-secondary: 0 0 15px rgba(240, 147, 251, 0.2);
+      
+      --border-radius: 20px;
+      --border-radius-sm: 15px;
+      --spacing-xs: 8px;
+      --spacing-sm: 12px;
+      --spacing-md: 20px;
+      --spacing-lg: 30px;
+      --spacing-xl: 40px;
+      
+      /* Icon style variables (defaults) */
+      --icon-radius: 50%;
+      --icon-bg: var(--accent-gradient);
+      --icon-border: none;
+      --icon-color: #ffffff;
+      --icon-shadow: var(--glow-primary);
+      --icon-animation: pulse 2s ease-in-out infinite;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      touch-action: manipulation;
+    }
+
+    /* Enhanced Background Animation */
+    .cosmic-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 25% 25%, rgba(79, 172, 254, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(240, 147, 251, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.06) 0%, transparent 70%);
+    }
+
+    .cosmic-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="0.3" fill="rgba(255,255,255,0.2)"/><circle cx="30" cy="40" r="0.2" fill="rgba(79,172,254,0.3)"/><circle cx="70" cy="20" r="0.25" fill="rgba(240,147,251,0.2)"/><circle cx="90" cy="70" r="0.15" fill="rgba(255,255,255,0.15)"/></svg>') repeat;
+      animation: float-stars 30s linear infinite;
+      opacity: 0.4;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cosmic-bg::before {
+        animation: none;
+      }
+    }
+
+    @keyframes float-stars {
+      from { transform: translate(-25px, -25px); }
+      to { transform: translate(0, 0); }
+    }
+
+    /* Enhanced Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid rgba(79, 172, 254, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      font-weight: 900;
+      background: var(--accent-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: 50px;
+      background: var(--bg-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.9rem;
+      min-height: 44px;
+    }
+
+    .back-btn:hover,
+    .back-btn:focus {
+      background: rgba(79, 172, 254, 0.2);
+      color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Main Container - Enhanced Mobile-First */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: calc(60px + var(--spacing-xl)) var(--spacing-md) var(--spacing-xl);
+      min-height: 100vh;
+    }
+
+    /* Welcome Section - Enhanced */
+    .welcome-section {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .welcome-section h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(1.8rem, 6vw, 3.5rem);
+      margin-bottom: var(--spacing-md);
+      background: var(--primary-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow-text 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow-text {
+      from { filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.2)); }
+      to { filter: drop-shadow(0 0 15px rgba(240, 147, 251, 0.3)); }
+    }
+
+    .welcome-section p {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto var(--spacing-lg);
+      line-height: 1.7;
+    }
+
+    .start-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-md) var(--spacing-xl);
+      background: var(--primary-gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: clamp(1rem, 3vw, 1.1rem);
+      box-shadow: var(--shadow-primary);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      min-height: 50px;
+      min-width: 200px;
+    }
+
+    .start-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .start-btn:hover::before,
+    .start-btn:focus::before {
+      left: 100%;
+    }
+
+    .start-btn:hover,
+    .start-btn:focus {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Enhanced Progress Section */
+    .progress-section {
+      margin-bottom: var(--spacing-lg);
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .progress-section.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .progress-container {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-md);
+      border: 1px solid rgba(79, 172, 254, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-sm);
+      font-size: 0.9rem;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent-gradient);
+      width: 0%;
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shimmer 2s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Enhanced Quiz Section */
+    .quiz-section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .quiz-section.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .question-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      border: 1px solid rgba(79, 172, 254, 0.2);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-primary);
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .question-card.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .question-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: var(--primary-gradient);
+      border-radius: calc(var(--border-radius) + 2px);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .question-card:hover::before {
+      opacity: 0.3;
+    }
+
+    .question-header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .question-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--icon-bg);
+      border: var(--icon-border);
+      border-radius: var(--icon-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--icon-color);
+      animation: var(--icon-animation);
+      box-shadow: var(--icon-shadow);
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .question-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .question-number {
+      font-family: 'Orbitron', monospace;
+      color: var(--text-accent);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .question-category {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+
+    .question-title {
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      margin-bottom: var(--spacing-lg);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .answers-grid {
+      display: grid;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    /* Enhanced Answer Cards */
+    .answer-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid transparent;
+      border-radius: var(--border-radius-sm);
+      padding: var(--spacing-md);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .answer-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.1), transparent);
+      transition: left 0.4s ease;
+    }
+
+    .answer-card:hover::before,
+    .answer-card:focus::before {
+      left: 100%;
+    }
+
+    .answer-card:hover,
+    .answer-card:focus {
+      background: rgba(79, 172, 254, 0.1);
+      border-color: rgba(79, 172, 254, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(79, 172, 254, 0.15);
+    }
+
+    .answer-card.selected {
+      background: var(--primary-gradient);
+      border-color: transparent;
+      color: white;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: var(--glow-primary);
+    }
+
+    .answer-card.selected::before {
+      display: none;
+    }
+
+    .answer-content {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      width: 100%;
+    }
+
+    .answer-emoji {
+      font-size: clamp(20px, 4vw, 28px);
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+
+    .answer-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .answer-title {
+      font-weight: 600;
+      font-size: clamp(0.95rem, 3vw, 1.05rem);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .answer-description {
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+
+    /* Enhanced Navigation */
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--spacing-lg);
+      gap: var(--spacing-sm);
+    }
+
+    .nav-btn {
+      flex: 1;
+      max-width: 180px;
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-xs);
+      text-decoration: none;
+      min-height: 46px;
+    }
+
+    .nav-btn.primary {
+      background: var(--primary-gradient);
+      color: white;
+      box-shadow: var(--shadow-primary);
+    }
+
+    .nav-btn.primary:hover,
+    .nav-btn.primary:focus {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .nav-btn.secondary {
+      background: transparent;
+      color: var(--text-accent);
+      border: 2px solid var(--text-accent);
+    }
+
+    .nav-btn.secondary:hover,
+    .nav-btn.secondary:focus {
+      background: var(--text-accent);
+      color: white;
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* Enhanced Results Section */
+    .results-section {
+      display: none;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .results-section.show {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .archetype-reveal {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-xl) var(--spacing-lg);
+      border: 1px solid rgba(79, 172, 254, 0.3);
+      margin-bottom: var(--spacing-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .archetype-reveal::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(79, 172, 254, 0.08), transparent);
+      animation: rotate 12s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .archetype-icon {
+      width: 100px;
+      height: 100px;
+      background: var(--icon-bg);
+      border: var(--icon-border);
+      border-radius: var(--icon-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--spacing-md);
+      font-size: 40px;
+      animation: float 3s ease-in-out infinite;
+      color: var(--icon-color);
+      box-shadow: var(--icon-shadow);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .archetype-title {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      margin-bottom: var(--spacing-sm);
+      background: var(--primary-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .archetype-subtitle {
+      color: var(--text-accent);
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      margin-bottom: var(--spacing-md);
+      font-weight: 500;
+    }
+
+    .archetype-description {
+      font-size: clamp(0.95rem, 3vw, 1.05rem);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .traits-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--spacing-md);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .trait-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius-sm);
+      padding: var(--spacing-md);
+      border: 1px solid rgba(79, 172, 254, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: left;
+    }
+
+    .trait-card:hover {
+      background: rgba(79, 172, 254, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .trait-icon {
+      width: 45px;
+      height: 45px;
+      background: var(--icon-bg);
+      border: var(--icon-border);
+      border-radius: var(--border-radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--spacing-sm);
+      font-size: 18px;
+      color: var(--icon-color);
+      box-shadow: var(--icon-shadow);
+      animation: var(--icon-animation);
+    }
+
+    /* Icon style variants: add one of these classes to <body> */
+    body.icon-style-outline {
+      --icon-bg: transparent;
+      --icon-border: 2px solid var(--text-accent);
+      --icon-color: var(--text-accent);
+      --icon-shadow: none;
+    }
+
+    body.icon-style-glass {
+      --icon-bg: rgba(255, 255, 255, 0.08);
+      --icon-border: 1px solid rgba(255, 255, 255, 0.2);
+      --icon-color: #ffffff;
+      --icon-shadow: 0 6px 20px rgba(79, 172, 254, 0.25);
+    }
+
+    body.icon-style-square {
+      --icon-radius: 14px;
+    }
+
+    body.icon-style-no-anim {
+      --icon-animation: none;
+    }
+
+    .trait-title {
+      font-weight: 600;
+      font-size: clamp(1rem, 3vw, 1.1rem);
+      margin-bottom: var(--spacing-xs);
+      text-align: left;
+    }
+
+    .trait-description {
+      color: var(--text-secondary);
+      line-height: 1.5;
+      font-size: clamp(0.85rem, 2.5vw, 0.9rem);
+      text-align: left;
+    }
+
+    .actions-section {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-top: var(--spacing-xl);
+    }
+
+    .actions-section .nav-btn {
+      white-space: nowrap;
+    }
+
+    /* Slightly longer Play Store button */
+    .actions-section .nav-btn.playstore {
+      padding-left: calc(var(--spacing-xl) * 1.1);
+      padding-right: calc(var(--spacing-xl) * 1.1);
+      min-width: 220px;
+    }
+
+    /* Keep one-line layout for medium+ screens; stack on narrow */
+    @media (max-width: 640px) {
+      .actions-section {
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+      .actions-section .nav-btn {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+      .container {
+        padding: calc(50px + var(--spacing-md)) var(--spacing-sm) var(--spacing-md);
+      }
+
+      .question-card {
+        padding: var(--spacing-md);
+      }
+
+      .quiz-nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-btn {
+        max-width: none;
+        width: 100%;
+      }
+
+      .archetype-reveal {
+        padding: var(--spacing-lg) var(--spacing-md);
+      }
+
+      .actions-section {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .actions-section .nav-btn {
+        max-width: 300px;
+      }
+
+      .traits-section {
+        grid-template-columns: 1fr;
+      }
+
+      .question-header {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-content {
+        padding: 0 var(--spacing-sm);
+      }
+
+      .back-btn {
+        font-size: 0.8rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+      }
+
+      .answer-card {
+        padding: var(--spacing-sm) var(--spacing-md);
+        min-height: 70px;
+      }
+
+      .answer-content {
+        gap: var(--spacing-xs);
+      }
+    }
+
+    /* Accessibility improvements */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Enhanced Focus styles */
+    .start-btn:focus,
+    .nav-btn:focus,
+    .answer-card:focus,
+    .back-btn:focus {
+      outline: 2px solid var(--text-accent);
+      outline-offset: 2px;
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      :root {
+        --text-secondary: #ffffff;
+        --bg-card: #000000;
+      }
+      
+      .answer-card {
+        border: 2px solid #ffffff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cosmic Background -->
+  <div class="cosmic-bg"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="https://www.habitari.site" class="nav-logo">HABITARI</a>
+      <a href="https://www.habitari.site" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        <span>Back</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Welcome Section -->
+    <section class="welcome-section" id="welcomeSection">
+      <h1>Discover Your Habit Archetype</h1>
+      <p>Embark on a journey of self-discovery. Uncover the unique patterns that drive your behavior and unlock personalized strategies for lasting transformation.</p>
+      <button class="start-btn" onclick="startQuiz()" aria-label="Begin the habit archetype quiz">
+        <i class="fas fa-rocket"></i>
+        Begin Your Journey
+      </button>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="progress-section" id="progressSection">
+      <div class="progress-container">
+        <div class="progress-info">
+          <span id="progressText">Question 1 of 10</span>
+          <span id="progressPercent">10%</span>
+        </div>
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section" id="quizSection">
+      <div class="question-card" id="questionCard">
+        <!-- Question content will be inserted here -->
+      </div>
+      
+      <div class="quiz-nav">
+        <button class="nav-btn secondary" id="prevBtn" onclick="previousQuestion()" aria-label="Previous question">
+          <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <button class="nav-btn primary" id="nextBtn" onclick="nextQuestion()" aria-label="Next question">
+          Next <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection">
+      <div class="archetype-reveal">
+        <div class="archetype-icon" id="archetypeIcon">
+          <i class="fas fa-user"></i>
+        </div>
+        <h2 class="archetype-title" id="archetypeTitle">Your Archetype</h2>
+        <p class="archetype-subtitle" id="archetypeSubtitle">The Determined Achiever</p>
+        <p class="archetype-description" id="archetypeDescription"></p>
+      </div>
+
+      <div class="traits-section" id="traitsSection">
+        <!-- Trait cards will be inserted here -->
+      </div>
+
+      <div class="actions-section">
+        <a href="https://play.google.com/store/apps/details?id=com.habitari.habitmaster" class="nav-btn primary playstore" target="_blank" rel="noopener" aria-label="Get Habitari on Google Play">
+          <i class="fab fa-google-play"></i> Get Habitari Free
+        </a>
+        <button class="nav-btn secondary" onclick="restartQuiz()" aria-label="Restart the quiz">
+          <i class="fas fa-redo"></i> Retake Quiz
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Helper: set icon style at runtime. Options: 'default', 'outline', 'glass', 'square', 'no-anim'
+    function setIconStyle(style) {
+      const body = document.body;
+      body.classList.remove('icon-style-outline', 'icon-style-glass', 'icon-style-square', 'icon-style-no-anim');
+      if (style === 'outline') body.classList.add('icon-style-outline');
+      else if (style === 'glass') body.classList.add('icon-style-glass');
+      else if (style === 'square') body.classList.add('icon-style-square');
+      else if (style === 'no-anim') body.classList.add('icon-style-no-anim');
+    }
+
+    // Motion and behavior configuration
+    const QUIZ_CONFIG = {
+      autoAdvance: true,              // Set to false to disable auto-next on selection
+      autoAdvanceDelayMs: 400,        // Delay before auto-advancing to next question
+      transitionOutMs: 250,           // Time to wait before replacing question content
+      transitionInMs: 50,             // Delay before animating question card in
+      startHideMs: 300,               // Hide/show timing for welcome/results transitions
+      finishHideMs: 400,              // Hide timing before showing results
+      resultRevealDelayMs: 600        // Delay before finishing on last question when auto-advancing
+    };
+
+    // Emoji to Font Awesome icon mapping (fallback to emoji if no match)
+    const EMOJI_ICON_MAP = {
+      '🎯': 'fas fa-bullseye',
+      '⚖️': 'fas fa-scale-balanced',
+      '🌱': 'fas fa-seedling',
+      '🎨': 'fas fa-palette',
+      '⭐': 'fas fa-star',
+      '🛡️': 'fas fa-shield-halved',
+      '🕊️': 'fas fa-dove',
+      '🔥': 'fas fa-fire',
+      '⏰': 'fas fa-clock',
+      '📋': 'fas fa-clipboard-check',
+      '🌊': 'fas fa-water',
+      '🎪': 'fas fa-tent',
+      '🔬': 'fas fa-microscope',
+      '📝': 'fas fa-square-pen',
+      '💭': 'fas fa-comments',
+      '🏹': 'fas fa-bullseye',
+      '🗂️': 'fas fa-folder-closed',
+      '🌿': 'fas fa-leaf',
+      '🌀': 'fas fa-circle-notch',
+      '🏅': 'fas fa-medal',
+      '✅': 'fas fa-square-check',
+      '😌': 'fas fa-face-smile',
+      '✨': 'fas fa-wand-magic-sparkles',
+      '📊': 'fas fa-chart-column',
+      '📅': 'fas fa-calendar-check',
+      '🤝': 'fas fa-handshake',
+      '🎁': 'fas fa-gift',
+      '📈': 'fas fa-chart-line',
+      '🏠': 'fas fa-house',
+      '🌸': 'fas fa-spa',
+      '⚡': 'fas fa-bolt',
+      '🌅': 'fas fa-sun',
+      '⏳': 'fas fa-hourglass-half',
+      '🌙': 'fas fa-moon',
+      '🧘': 'fas fa-person-praying',
+      '🎮': 'fas fa-gamepad',
+      '🔒': 'fas fa-lock'
+    };
+
+    // Updated Quiz Data - 10 questions with dual archetype names
+    const quizData = [
+      {
+        category: "Future Vision",
+        icon: "fas fa-compass",
+        question: "When you imagine your ideal self 5 years from now, what excites you most?",
+        answers: [
+          {
+            emoji: "🎯",
+            title: "Mastering skills and reaching peak performance",
+            description: "Being recognized as an expert in your field",
+            types: { achiever: 3, explorer: 1 }
+          },
+          {
+            emoji: "⚖️",
+            title: "Having routines that keep life balanced and steady",
+            description: "Consistent patterns that support your wellbeing",
+            types: { organizer: 3, wellness: 1 }
+          },
+          {
+            emoji: "🌱",
+            title: "Living mindfully with peace and strong wellbeing",
+            description: "Inner harmony and holistic health",
+            types: { wellness: 3, organizer: 1 }
+          },
+          {
+            emoji: "🎨",
+            title: "Exploring, learning, and experiencing new things",
+            description: "Never stopping to grow and discover",
+            types: { explorer: 3, wellness: 1 }
+          }
+        ]
+      },
+      {
+        category: "Core Values",
+        icon: "fas fa-heart",
+        question: "Which value guides most of your important life decisions?",
+        answers: [
+          {
+            emoji: "⭐",
+            title: "Excellence in everything I do",
+            description: "High standards and quality drive your choices",
+            types: { achiever: 3, organizer: 1 }
+          },
+          {
+            emoji: "🛡️",
+            title: "Security and predictability",
+            description: "Creating safety and reliability for yourself",
+            types: { organizer: 3, wellness: 1 }
+          },
+          {
+            emoji: "🕊️",
+            title: "Harmony and balance",
+            description: "Integration and wholeness are essential",
+            types: { wellness: 3, explorer: 1 }
+          },
+          {
+            emoji: "🔥",
+            title: "Authenticity and growth",
+            description: "Living genuinely, even when taking risks",
+            types: { explorer: 3, achiever: 1 }
+          }
+        ]
+      },
+      {
+        category: "Daily Structure",
+        icon: "fas fa-calendar-day",
+        question: "How do you prefer to structure your ideal day?",
+        answers: [
+          {
+            emoji: "⏰",
+            title: "Time-blocked with specific goals",
+            description: "Every hour optimized for maximum productivity",
+            types: { achiever: 3, organizer: 2 }
+          },
+          {
+            emoji: "📋",
+            title: "Predictable patterns and steady routines",
+            description: "Same rituals, regular times, familiar rhythms",
+            types: { organizer: 3, achiever: 1 }
+          },
+          {
+            emoji: "🌊",
+            title: "Flexible flow that follows my energy",
+            description: "Adapting to how you feel and what your body needs",
+            types: { wellness: 3, explorer: 1 }
+          },
+          {
+            emoji: "🎪",
+            title: "Variety and space for adventure",
+            description: "Different activities to keep you engaged",
+            types: { explorer: 3, wellness: 1 }
+          }
+        ]
+      },
+      {
+        category: "Problem Solving",
+        icon: "fas fa-lightbulb",
+        question: "When facing a complex challenge, what's your natural first instinct?",
+        answers: [
+          {
+            emoji: "🔬",
+            title: "Break it into measurable steps",
+            description: "Systematic analysis to find optimal solutions",
+            types: { achiever: 3, organizer: 2 }
+          },
+          {
+            emoji: "📝",
+            title: "Create a clear systematic plan",
+            description: "Organization provides foundation for solutions",
+            types: { organizer: 3, achiever: 1 }
+          },
+          {
+            emoji: "💭",
+            title: "Step back and reflect on the bigger picture",
+            description: "Understanding how everything connects",
+            types: { wellness: 3, explorer: 1 }
+          },
+          {
+            emoji: "🎯",
+            title: "Try different approaches until one works",
+            description: "Experimentation leads to breakthrough insights",
+            types: { explorer: 3, achiever: 1 }
+          }
+        ]
+      },
+      {
+        category: "Habit Recovery",
+        icon: "fas fa-arrows-rotate",
+        question: "When you miss a habit or routine, how do you usually respond?",
+        answers: [
+          {
+            emoji: "🏹",
+            title: "Double down and push myself to stay on track",
+            description: "Use discipline to get back on course immediately",
+            types: { achiever: 3, organizer: 1 }
+          },
+          {
+            emoji: "🗂️",
+            title: "Adjust my system or routine so it works better",
+            description: "Refine the process to prevent future lapses",
+            types: { organizer: 3, achiever: 1 }
+          },
+          {
+            emoji: "🌿",
+            title: "Give myself grace and ease back into the habit",
+            description: "Practice self-compassion and gentle return",
+            types: { wellness: 3, explorer: 1 }
+          },
+          {
+            emoji: "🌀",
+            title: "Switch it up to make the habit fun again",
+            description: "Add variety or change approach completely",
+            types: { explorer: 3, wellness: 1 }
+          }
+        ]
+      },
+      {
+        category: "Motivation Drivers",
+        icon: "fas fa-fire",
+        question: "What type of reward motivates you most deeply?",
+        answers: [
+          {
+            emoji: "🏅",
+            title: "Recognition for accomplishments",
+            description: "Validation from peers and experts in your field",
+            types: { achiever: 3, explorer: 1 }
+          },
+          {
+            emoji: "✅",
+            title: "Checking tasks off and completing lists",
+            description: "Satisfaction of order and systematic completion",
+            types: { organizer: 3, achiever: 1 }
+          },
+          {
+            emoji: "😌",
+            title: "The calm satisfaction of living authentically",
+            description: "Inner peace from aligning with your values",
+            types: { wellness: 3, organizer: 1 }
+          },
+          {
+            emoji: "✨",
+            title: "The thrill of new experiences",
+            description: "Excitement of breaking new ground and discovery",
+            types: { explorer: 3, wellness: 1 }
+          }
+        ]
+      },
+      {
+        category: "Habit Consistency",
+        icon: "fas fa-chart-line",
+        question: "Which of these gives you the strongest push to stick with a habit?",
+        answers: [
+          {
+            emoji: "📊",
+            title: "Seeing measurable results and progress",
+            description: "Data and metrics showing clear improvement",
+            types: { achiever: 3, organizer: 1 }
+          },
+          {
+            emoji: "📅",
+            title: "Having a reliable schedule or checklist",
+            description: "Structure and predictable systems",
+            types: { organizer: 3, achiever: 1 }
+          },
+          {
+            emoji: "🤝",
+            title: "Encouragement and support from others",
+            description: "Community connection and shared accountability",
+            types: { wellness: 3, explorer: 1 }
+          },
+          {
+            emoji: "🎁",
+            title: "Surprises, novelty, and fun challenges",
+            description: "Unexpected rewards and engaging variety",
+            types: { explorer: 3, wellness: 1 }
+          }
+        ]
+      },
+      {
+        category: "Environment Setup",
+        icon: "fas fa-home",
+        question: "What environment makes it easiest for you to build new habits?",
+        answers: [
+          {
+            emoji: "📈",
+            title: "Clear goals in a structured setup",
+            description: "Organized space with visible targets and metrics",
+            types: { achiever: 3, organizer: 2 }
+          },
+          {
+            emoji: "🏠",
+            title: "Calm, consistent, and predictable space",
+            description: "Stable environment free from distractions",
+            types: { organizer: 3, wellness: 1 }
+          },
+          {
+            emoji: "🌸",
+            title: "Supportive and nurturing atmosphere",
+            description: "Warm, encouraging space that feels safe",
+            types: { wellness: 3, organizer: 1 }
+          },
+          {
+            emoji: "🎨",
+            title: "Stimulating and full of variety",
+            description: "Dynamic space with changing elements",
+            types: { explorer: 3, achiever: 1 }
+          }
+        ]
+      },
+      {
+        category: "Energy Management",
+        icon: "fas fa-battery-three-quarters",
+        question: "When do you feel most energized to tackle challenges?",
+        answers: [
+          {
+            emoji: "🌅",
+            title: "Early morning power hours",
+            description: "Dawn energy helps you accomplish key goals",
+            types: { achiever: 3, organizer: 2 }
+          },
+          {
+            emoji: "⏳",
+            title: "During scheduled focus blocks",
+            description: "Predetermined windows optimize your performance",
+            types: { organizer: 3, achiever: 1 }
+          },
+          {
+            emoji: "🌙",
+            title: "Evening reflection time",
+            description: "Nighttime brings clarity for inner work",
+            types: { wellness: 3, explorer: 1 }
+          },
+          {
+            emoji: "⚡",
+            title: "Whenever inspiration strikes",
+            description: "Energy comes in waves and you ride them",
+            types: { explorer: 3, wellness: 1 }
+          }
+        ]
+      },
+      {
+        category: "Technology Preferences",
+        icon: "fas fa-mobile-alt",
+        question: "If a habit app could do one thing really well for you, what would it be?",
+        answers: [
+          {
+            emoji: "📈",
+            title: "Advanced analytics and tracking",
+            description: "Detailed insights into patterns and optimization",
+            types: { achiever: 3, organizer: 1 }
+          },
+          {
+            emoji: "🔒",
+            title: "Simple interface with structure and privacy",
+            description: "Clean design with complete data control",
+            types: { organizer: 3, wellness: 1 }
+          },
+          {
+            emoji: "🧘",
+            title: "Mindfulness and wellness check-ins",
+            description: "Gentle support for mental and emotional health",
+            types: { wellness: 3, explorer: 1 }
+          },
+          {
+            emoji: "🎮",
+            title: "Gamification with surprises",
+            description: "Points, levels, and unexpected rewards",
+            types: { explorer: 3, achiever: 1 }
+          }
+        ]
+      }
+    ];
+
+    // Enhanced personality archetypes with dual naming
+    const archetypes = {
+      achiever: {
+        title: "Achiever – The Driver",
+        subtitle: "Data-Driven Excellence Seeker",
+        icon: "fas fa-trophy",
+        description: "You're wired for optimization and mastery. Your brain thrives on metrics, milestones, and measurable progress. You see habits not just as routines, but as the building blocks of extraordinary achievement. Your superpower lies in turning ambition into systematic action.",
+        traits: [
+          {
+            icon: "fas fa-chart-line",
+            title: "Analytics-Minded",
+            description: "You love tracking progress with detailed metrics and finding patterns in performance data."
+          },
+          {
+            icon: "fas fa-bullseye",
+            title: "Goal-Oriented",
+            description: "Every habit serves a larger purpose in your strategic plan for personal excellence."
+          },
+          {
+            icon: "fas fa-rocket",
+            title: "Optimization-Focused",
+            description: "You constantly refine your approach, seeking the most efficient path to objectives."
+          },
+          {
+            icon: "fas fa-medal",
+            title: "Competition-Driven",
+            description: "You're motivated by benchmarks and the thrill of outperforming your past self."
+          }
+        ]
+      },
+      organizer: {
+        title: "Organizer – The Planner",
+        subtitle: "Structure & Consistency Master",
+        icon: "fas fa-chess-rook",
+        description: "You understand that true power comes from consistent, reliable systems. While others chase motivation, you build unshakeable foundations. Your habits aren't flashy – they're steadfast pillars that support everything else in your life.",
+        traits: [
+          {
+            icon: "fas fa-calendar-alt",
+            title: "Routine-Oriented",
+            description: "You thrive on predictable patterns and find comfort in well-established daily rhythms."
+          },
+          {
+            icon: "fas fa-shield-alt",
+            title: "Privacy-Conscious",
+            description: "You prefer to work on yourself privately, without external pressure or comparison."
+          },
+          {
+            icon: "fas fa-building",
+            title: "Foundation-Builder",
+            description: "You focus on creating solid, sustainable systems that will serve you for years."
+          },
+          {
+            icon: "fas fa-check-circle",
+            title: "Completion-Focused",
+            description: "You find deep satisfaction in following through and maintaining streaks."
+          }
+        ]
+      },
+      wellness: {
+        title: "Wellness – The Nurturer",
+        subtitle: "Holistic Wellbeing Cultivator",
+        icon: "fas fa-spa",
+        description: "You recognize that true transformation happens from the inside out. Your approach to habits is rooted in self-compassion, awareness, and honoring your natural rhythms. You're building not just better behaviors, but a more conscious way of being.",
+        traits: [
+          {
+            icon: "fas fa-heart",
+            title: "Self-Compassionate",
+            description: "You practice kindness with yourself, understanding that sustainable change requires patience."
+          },
+          {
+            icon: "fas fa-balance-scale",
+            title: "Balance-Seeking",
+            description: "You prioritize harmony between different life areas rather than optimizing just one."
+          },
+          {
+            icon: "fas fa-leaf",
+            title: "Mindfulness-Oriented",
+            description: "You value present-moment awareness and integrate contemplative practices."
+          },
+          {
+            icon: "fas fa-seedling",
+            title: "Naturally-Aligned",
+            description: "You listen to your body's signals and adapt habits to your natural cycles."
+          }
+        ]
+      },
+      explorer: {
+        title: "Explorer – The Experimenter",
+        subtitle: "Dynamic Growth Pioneer",
+        icon: "fas fa-compass",
+        description: "You're driven by curiosity, variety, and the excitement of personal evolution. Your habits aren't rigid rules – they're flexible experiments in becoming your best self. You see personal development as an endless, joyful adventure.",
+        traits: [
+          {
+            icon: "fas fa-dice",
+            title: "Variety-Loving",
+            description: "You stay engaged by mixing up routines and trying different approaches to goals."
+          },
+          {
+            icon: "fas fa-gamepad",
+            title: "Gamification-Motivated",
+            description: "You're energized by challenges, rewards, and anything that makes growth feel like play."
+          },
+          {
+            icon: "fas fa-lightbulb",
+            title: "Innovation-Driven",
+            description: "You love experimenting with new techniques and aren't afraid to pivot when needed."
+          },
+          {
+            icon: "fas fa-mountain",
+            title: "Challenge-Seeking",
+            description: "You're motivated by pushing boundaries and growing beyond your comfort zone."
+          }
+        ]
+      }
+    };
+
+    // Quiz state
+    let currentQuestion = 0;
+    let answers = [];
+    let scores = { achiever: 0, organizer: 0, wellness: 0, explorer: 0 };
+    let isQuizActive = false;
+
+    // Start quiz with smooth transitions
+    async function startQuiz() {
+      const welcomeSection = document.getElementById('welcomeSection');
+      const progressSection = document.getElementById('progressSection');
+      const quizSection = document.getElementById('quizSection');
+
+      // Smooth hide welcome section
+      welcomeSection.style.opacity = '0';
+      welcomeSection.style.transform = 'translateY(-30px)';
+      
+      setTimeout(() => {
+        welcomeSection.style.display = 'none';
+        
+        // Show progress and quiz sections
+        progressSection.classList.add('show');
+        quizSection.classList.add('show');
+        
+        // Initialize quiz state
+        currentQuestion = 0;
+        answers = [];
+        scores = { achiever: 0, organizer: 0, wellness: 0, explorer: 0 };
+        isQuizActive = true;
+        
+        showQuestion(currentQuestion);
+        updateProgress();
+        updateNavigation();
+      }, QUIZ_CONFIG.startHideMs);
+    }
+
+    // Show question with smooth animations
+    function showQuestion(index) {
+      const question = quizData[index];
+      const questionCard = document.getElementById('questionCard');
+      
+      // Animate out current content
+      questionCard.classList.remove('active');
+      
+      setTimeout(() => {
+        questionCard.innerHTML = `
+          <div class="question-header">
+            <div class="question-icon">
+              <i class="${question.icon}"></i>
+            </div>
+            <div class="question-meta">
+              <div class="question-number">Question ${index + 1} of ${quizData.length}</div>
+              <div class="question-category">${question.category}</div>
+            </div>
+          </div>
+          
+          <h2 class="question-title">${question.question}</h2>
+          
+          <div class="answers-grid">
+            ${question.answers.map((answer, answerIndex) => {
+              const iconClass = EMOJI_ICON_MAP[answer.emoji];
+              const emojiHtml = iconClass ? `<i class="${iconClass}"></i>` : `${answer.emoji}`;
+              return `
+              <div class=\"answer-card\" onclick=\"selectAnswer(${answerIndex})\" data-answer=\"${answerIndex}\" role=\"button\" tabindex=\"0\">
+                <div class=\"answer-content\"> 
+                  <span class=\"answer-emoji\">${emojiHtml}</span>
+                  <div class=\"answer-text\">
+                    <div class=\"answer-title\">${answer.title}</div>
+                    <div class=\"answer-description\">${answer.description}</div>
+                  </div>
+                </div>
+              </div>`;
+            }).join('')}
+          </div>
+        `;
+        
+        // Restore previous selection if exists
+        if (answers[index] !== undefined) {
+          const selectedCard = questionCard.querySelector(`[data-answer="${answers[index]}"]`);
+          if (selectedCard) {
+            selectedCard.classList.add('selected');
+          }
+        }
+
+        // Add keyboard support for answer cards
+        questionCard.querySelectorAll('.answer-card').forEach((card, idx) => {
+          card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              selectAnswer(idx);
+            }
+          });
+        });
+        
+        // Animate in new content
+        setTimeout(() => {
+          questionCard.classList.add('active');
+        }, QUIZ_CONFIG.transitionInMs);
+      }, QUIZ_CONFIG.transitionOutMs);
+    }
+
+    // Select answer with enhanced feedback
+    function selectAnswer(answerIndex) {
+      if (!isQuizActive) return;
+      
+      const answerCards = document.querySelectorAll('.answer-card');
+      answerCards.forEach(card => card.classList.remove('selected'));
+      
+      const selectedCard = document.querySelector(`[data-answer="${answerIndex}"]`);
+      selectedCard.classList.add('selected');
+      
+      // Update answers array
+      const previousAnswer = answers[currentQuestion];
+      answers[currentQuestion] = answerIndex;
+      
+      // Update scores - remove previous answer's contribution first
+      if (previousAnswer !== undefined) {
+        const prevAnswer = quizData[currentQuestion].answers[previousAnswer];
+        Object.keys(prevAnswer.types).forEach(type => {
+          scores[type] = Math.max(0, scores[type] - prevAnswer.types[type]);
+        });
+      }
+      
+      // Add new answer's contribution
+      const answer = quizData[currentQuestion].answers[answerIndex];
+      Object.keys(answer.types).forEach(type => {
+        scores[type] = (scores[type] || 0) + answer.types[type];
+      });
+      
+      updateNavigation();
+      
+      // Auto-advance with slight delay for better UX (configurable)
+      if (QUIZ_CONFIG.autoAdvance) {
+        setTimeout(() => {
+          if (currentQuestion < quizData.length - 1) {
+            nextQuestion();
+          } else {
+            setTimeout(finishQuiz, QUIZ_CONFIG.resultRevealDelayMs);
+          }
+        }, QUIZ_CONFIG.autoAdvanceDelayMs);
+      }
+    }
+
+    // Navigate to next question
+    function nextQuestion() {
+      if (!isQuizActive || answers[currentQuestion] === undefined) return;
+      
+      currentQuestion++;
+      
+      if (currentQuestion < quizData.length) {
+        showQuestion(currentQuestion);
+        updateProgress();
+        updateNavigation();
+      } else {
+        finishQuiz();
+      }
+    }
+
+    // Navigate to previous question
+    function previousQuestion() {
+      if (!isQuizActive || currentQuestion === 0) return;
+      
+      currentQuestion--;
+      showQuestion(currentQuestion);
+      updateProgress();
+      updateNavigation();
+    }
+
+    // Update progress bar and indicators
+    function updateProgress() {
+      const progress = ((currentQuestion + 1) / quizData.length) * 100;
+      document.getElementById('progressFill').style.width = progress + '%';
+      document.getElementById('progressText').textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+      document.getElementById('progressPercent').textContent = `${Math.round(progress)}%`;
+      
+      // Update progress bar aria attributes
+      const progressBar = document.querySelector('.progress-bar');
+      progressBar.setAttribute('aria-valuenow', Math.round(progress));
+    }
+
+    // Update navigation button states
+    function updateNavigation() {
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      
+      // Previous button state and visibility
+      if (currentQuestion === 0) {
+        prevBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'flex';
+        prevBtn.disabled = false;
+      }
+
+      // Next button behavior depends on autoAdvance mode
+      if (QUIZ_CONFIG.autoAdvance) {
+        nextBtn.style.display = 'none';
+      } else {
+        nextBtn.style.display = 'flex';
+        nextBtn.disabled = answers[currentQuestion] === undefined;
+        if (currentQuestion === quizData.length - 1 && answers[currentQuestion] !== undefined) {
+          nextBtn.innerHTML = '<i class="fas fa-magic"></i> Reveal My Archetype';
+        } else {
+          nextBtn.innerHTML = 'Next <i class="fas fa-chevron-right"></i>';
+        }
+      }
+    }
+
+    // Calculate the dominant personality archetype
+    function calculateArchetype() {
+      let maxScore = 0;
+      let dominantArchetype = 'achiever';
+      
+      Object.keys(scores).forEach(type => {
+        if (scores[type] > maxScore) {
+          maxScore = scores[type];
+          dominantArchetype = type;
+        }
+      });
+      
+      return dominantArchetype;
+    }
+
+    // Complete quiz and show personalized results
+    async function finishQuiz() {
+      isQuizActive = false;
+      
+      const dominantArchetype = calculateArchetype();
+      const archetype = archetypes[dominantArchetype];
+      
+      // Hide quiz sections with smooth transition
+      const progressSection = document.getElementById('progressSection');
+      const quizSection = document.getElementById('quizSection');
+      const resultsSection = document.getElementById('resultsSection');
+      
+      progressSection.style.opacity = '0';
+      quizSection.style.opacity = '0';
+      
+      setTimeout(() => {
+        progressSection.style.display = 'none';
+        quizSection.style.display = 'none';
+        
+        // Populate results with archetype data
+        document.getElementById('archetypeIcon').innerHTML = `<i class="${archetype.icon}"></i>`;
+        document.getElementById('archetypeTitle').textContent = archetype.title;
+        document.getElementById('archetypeSubtitle').textContent = archetype.subtitle;
+        document.getElementById('archetypeDescription').textContent = archetype.description;
+        
+        // Generate trait cards
+        const traitsSection = document.getElementById('traitsSection');
+        traitsSection.innerHTML = archetype.traits.map(trait => `
+          <div class="trait-card">
+            <div class="trait-icon">
+              <i class="${trait.icon}"></i>
+            </div>
+            <h3 class="trait-title">${trait.title}</h3>
+            <p class="trait-description">${trait.description}</p>
+          </div>
+        `).join('');
+        
+        // Show results with animation
+        resultsSection.classList.add('show');
+        
+        // SEO-friendly logging
+        console.log(`Quiz completed: ${dominantArchetype} archetype revealed`);
+      }, QUIZ_CONFIG.finishHideMs);
+    }
+
+    // Restart the entire quiz experience
+    function restartQuiz() {
+      const resultsSection = document.getElementById('resultsSection');
+      const welcomeSection = document.getElementById('welcomeSection');
+      
+      resultsSection.classList.remove('show');
+      
+      setTimeout(() => {
+        resultsSection.style.display = 'none';
+        welcomeSection.style.display = 'block';
+        welcomeSection.style.opacity = '1';
+        welcomeSection.style.transform = 'translateY(0)';
+        
+        // Reset all quiz state
+        currentQuestion = 0;
+        answers = [];
+        scores = { achiever: 0, organizer: 0, wellness: 0, explorer: 0 };
+        isQuizActive = false;
+      }, QUIZ_CONFIG.startHideMs);
+    }
+
+    // Enhanced initialization and event handling
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Habitari Archetype Quiz - Discover your unique habit personality!');
+      
+      // Keyboard navigation support
+      document.addEventListener('keydown', (e) => {
+        if (!isQuizActive) return;
+        
+        if (e.key === 'ArrowLeft' && currentQuestion > 0) {
+          previousQuestion();
+        } else if (e.key === 'ArrowRight' && answers[currentQuestion] !== undefined) {
+          nextQuestion();
+        } else if (e.key >= '1' && e.key <= '4') {
+          const answerIndex = parseInt(e.key) - 1;
+          const answerCards = document.querySelectorAll('.answer-card');
+          if (answerCards[answerIndex]) {
+            selectAnswer(answerIndex);
+          }
+        }
+      });
+      
+      // Enhanced navbar scroll behavior
+      let lastScrollY = window.scrollY;
+      let ticking = false;
+      
+      function updateNavbar() {
+        const nav = document.querySelector('.nav');
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 50) {
+          nav.style.background = 'rgba(15, 15, 35, 0.98)';
+          nav.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+        } else {
+          nav.style.background = 'rgba(15, 15, 35, 0.95)';
+          nav.style.boxShadow = 'none';
+        }
+        
+        // Auto-hide navbar on scroll down for mobile
+        if (window.innerWidth <= 768) {
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            nav.style.transform = 'translateY(-100%)';
+          } else {
+            nav.style.transform = 'translateY(0)';
+          }
+        }
+        
+        lastScrollY = currentScrollY;
+        ticking = false;
+      }
+      
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateNavbar);
+          ticking = true;
+        }
+      });
+      
+      // Touch improvements for mobile
+      let touchStartY = 0;
+      document.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      
+      // Prevent overscroll bounce on iOS
+      document.addEventListener('touchmove', (e) => {
+        if (document.body.scrollHeight <= window.innerHeight) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+      
+      // Expose functions globally for onclick handlers
+      window.startQuiz = startQuiz;
+      window.nextQuestion = nextQuestion;
+      window.previousQuestion = previousQuestion;
+      window.selectAnswer = selectAnswer;
+      window.restartQuiz = restartQuiz;
+      window.setIconStyle = setIconStyle;
+
+      // Ensure nav reflects current config before quiz starts
+      const nextBtn = document.getElementById('nextBtn');
+      if (QUIZ_CONFIG.autoAdvance) {
+        nextBtn.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
